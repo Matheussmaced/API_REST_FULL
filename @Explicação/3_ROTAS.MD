@@ -3,3 +3,11 @@ _PLUGINS_
 - Nada mais são uma forma da gente separar pequenos pedacinhos da nossa aplicação em mais arquivos
 
 - Consigo separar rotas como demostrado nesse commit
+
+- No plugin criado no arquivo `server.ts` se caso todas as rotas tiverem o mesmo caminho, posso passar um segundo parametro contendo `{prefix:}` todas as rotas que começarem com o prefix que colocaremos vão cair no plugin `'/'` definido no arquivo `transactions.ts`
+
+- `.body` é de onde vem as informações que servem para criar ou editar algum recurso, caso estou criando uma transação, é dentro do `body` que vai vir os dados dessa transação que estou querendo criar, geralmente dados preenchidos atraves de um formulario
+
+*Explicação*
+
+- nesse trecho do codigo desse commit `const body = createTransactionSchema.parse(req.body)` estou validando os dados do meu `req.body` que são os dados vindo da requisição para ver se ele batem com o meu schema que defini a cima e se tudo bate, o codigo continuará executado
