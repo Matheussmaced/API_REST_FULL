@@ -8,6 +8,6 @@ _PLUGINS_
 
 - `.body` é de onde vem as informações que servem para criar ou editar algum recurso, caso estou criando uma transação, é dentro do `body` que vai vir os dados dessa transação que estou querendo criar, geralmente dados preenchidos atraves de um formulario
 
-*Explicação*
+_Explicação_
 
 - nesse trecho do codigo desse commit `const body = createTransactionSchema.parse(req.body)` estou validando os dados do meu `req.body` que são os dados vindo da requisição para ver se ele batem com o meu schema que defini a cima e se tudo bate, o codigo continuará executado
