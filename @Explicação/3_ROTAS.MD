@@ -12,25 +12,30 @@ _Explicação_
 
 - nesse trecho do codigo desse commit `const body = createTransactionSchema.parse(req.body)` estou validando os dados do meu `req.body` que são os dados vindo da requisição para ver se ele batem com o meu schema que defini a cima e se tudo bate, o codigo continuará executado
 
+_Cookies_
 
-*Cookies*
+- Formas de manter contexto entre requisições
+- Serve para indentificar o usuario
 
-* Formas de manter contexto entre requisições
-* Serve para indentificar o usuario
+- OBS: para se trabalhar com cookies no fastify, é necessário instalar `npm i @fastify/cookie`
 
-* OBS: para se trabalhar com cookies no fastify, é necessário instalar `npm i @fastify/cookie`
+- `if (!sessionId) {
+  sessionId = randomUUID()
 
-* `if (!sessionId) {
-      sessionId = randomUUID()
+        reply.cookie('sessionId', sessionId, {
+          path: '/',
+        })
+      }`
 
-      reply.cookie('sessionId', sessionId, {
-        path: '/',
-      })
-    }`
-Caso não tenha um sessionId, ele irá criar um e irá salvar no cookie com o `reply.` com uma informação chamada `sessionId` com o valor do id que acabou de criar
+  Caso não tenha um sessionId, ele irá criar um e irá salvar no cookie com o `reply.` com uma informação chamada `sessionId` com o valor do id que acabou de criar
 
-* O cookie possui algumas configurações onde as principais são:
+- O cookie possui algumas configurações onde as principais são:
 
-* `path` onde quais endereço esse cookie estará disponivel (se colocarmos `'/'` quero dizer que qualquer rota do meu backend pode acessar esse cookie)
+- `path` onde quais endereço esse cookie estará disponivel (se colocarmos `'/'` quero dizer que qualquer rota do meu backend pode acessar esse cookie)
 
-* `maxAge` onde será a data limite de expiração do cookie onde a informação é passada em milesegundos
+- `maxAge` onde será a data limite de expiração do cookie onde a informação é passada em milesegundos
+
+
+*Entendendo o codigo desse commit*
+
+* `preHandler: [checkSessionIdExists]` executa a verificação criada na pasta `middlewares/check-session-id-exists.ts` passando `req, reply` essa função valida se a `sessionId` existe, se não existe, retornará um erro
