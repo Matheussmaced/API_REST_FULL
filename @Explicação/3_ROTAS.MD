@@ -11,3 +11,26 @@ _PLUGINS_
 _Explicação_
 
 - nesse trecho do codigo desse commit `const body = createTransactionSchema.parse(req.body)` estou validando os dados do meu `req.body` que são os dados vindo da requisição para ver se ele batem com o meu schema que defini a cima e se tudo bate, o codigo continuará executado
+
+
+*Cookies*
+
+* Formas de manter contexto entre requisições
+* Serve para indentificar o usuario
+
+* OBS: para se trabalhar com cookies no fastify, é necessário instalar `npm i @fastify/cookie`
+
+* `if (!sessionId) {
+      sessionId = randomUUID()
+
+      reply.cookie('sessionId', sessionId, {
+        path: '/',
+      })
+    }`
+Caso não tenha um sessionId, ele irá criar um e irá salvar no cookie com o `reply.` com uma informação chamada `sessionId` com o valor do id que acabou de criar
+
+* O cookie possui algumas configurações onde as principais são:
+
+* `path` onde quais endereço esse cookie estará disponivel (se colocarmos `'/'` quero dizer que qualquer rota do meu backend pode acessar esse cookie)
+
+* `maxAge` onde será a data limite de expiração do cookie onde a informação é passada em milesegundos
