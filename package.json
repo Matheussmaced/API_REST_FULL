@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch src/server.ts",
     "knex": "ts-node ./node_modules/knex/bin/cli.js",
     "lint": "eslint src --ext .ts --fix",
-    "fix": "npx prettier --write ."
+    "fix": "npx prettier --write .",
+    "test": "npx vitest"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +18,8 @@
     "@types/node": "^20.9.1",
     "eslint": "^8.53.0",
     "tsx": "^4.1.2",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
   },
   "dependencies": {
     "@fastify/cookie": "^9.2.0",

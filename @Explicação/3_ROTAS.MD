@@ -35,7 +35,10 @@ _Cookies_
 
 - `maxAge` onde será a data limite de expiração do cookie onde a informação é passada em milesegundos
 
+_Entendendo o codigo desse commit_
 
-*Entendendo o codigo desse commit*
+- `preHandler: [checkSessionIdExists]` executa a verificação criada na pasta `middlewares/check-session-id-exists.ts` passando `req, reply` essa função valida se a `sessionId` existe, se não existe, retornará um erro
 
-* `preHandler: [checkSessionIdExists]` executa a verificação criada na pasta `middlewares/check-session-id-exists.ts` passando `req, reply` essa função valida se a `sessionId` existe, se não existe, retornará um erro
+- Para criarmos um middleware global (Oque está depois dos metodos) basta escrever no `server.ts` `app.addHook('preHandler', async (req, reply) => {
+  console.log(`[${req.method}] ${req.url}`)
+})`
