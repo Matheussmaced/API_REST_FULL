@@ -29,3 +29,15 @@ _e2e - ponta a ponta_
 * 3 - validação `expect(responseStatusCode).toEqual(201)`
 
 e para executar o codigo, basta digitar `npx vitest`
+
+- Antes de criarmos os testes, precisaremos instalar `npm i supertest -D` e `npm i -D @types/supertest` para mudarmos a porta host no teste
+
+* Separamos o server em 2 arquivos, nisso podemos utilizar o `app.ts` no nosso arquivo de teste e nisso mudar a porta para outra diferente do server atual
+
+* `expect(response.statusCode).toEqual(201)` ou `.expect(201)`
+
+* `beforeAll()` posso executar algum codigo antes que todos os testes executem, mas lembrando que ele executará apenas uma unica vez antes de todos os testes
+
+* `beforeEach()` Executa mais de uma vez
+
+* `afterAll()` executa um codigo depois que todos os testes executam
