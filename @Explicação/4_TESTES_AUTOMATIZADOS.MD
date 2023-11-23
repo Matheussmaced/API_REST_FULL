@@ -47,3 +47,16 @@ e para executar o codigo, basta digitar `npx vitest`
 
 
 * O metodo `set()` serve para setamos uma informação da requisição
+
+* O ideal para testes, seria rodar os testes com o banco de dados totalmente zerados, uma solução para isso seria o codigo :
+
+`
+beforeEach(() => {
+    execSync('npm run knex migrate:rollback --all')
+    execSync('npm run knex migrate:latest')
+  })
+`
+
+a cada teste apagamos o banco e criamos novamente
+
+onde `execSync` é importado do `node:child_process`
