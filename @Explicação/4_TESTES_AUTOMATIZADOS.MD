@@ -41,3 +41,9 @@ e para executar o codigo, basta digitar `npx vitest`
 * `beforeEach()` Executa mais de uma vez
 
 * `afterAll()` executa um codigo depois que todos os testes executam
+
+*Regra*
+* Jamais podemos escrever um teste que dependa de outro teste se isso acontecer, quer dizer que esses testes deveriam ser somente 1 só teste
+
+
+* O metodo `set()` serve para setamos uma informação da requisição
