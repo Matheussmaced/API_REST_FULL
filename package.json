@@ -19,6 +19,7 @@
   "license": "ISC",
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.1.0",
+    "@types/knex": "^0.16.1",
     "@types/node": "^20.9.1",
     "@types/supertest": "^2.0.16",
     "eslint": "^8.53.0",

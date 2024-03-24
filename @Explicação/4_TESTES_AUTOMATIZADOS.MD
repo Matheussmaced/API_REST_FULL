@@ -42,20 +42,18 @@ e para executar o codigo, basta digitar `npx vitest`
 
 * `afterAll()` executa um codigo depois que todos os testes executam
 
-*Regra*
-* Jamais podemos escrever um teste que dependa de outro teste se isso acontecer, quer dizer que esses testes deveriam ser somente 1 só teste
+_Regra_
 
+- Jamais podemos escrever um teste que dependa de outro teste se isso acontecer, quer dizer que esses testes deveriam ser somente 1 só teste
 
-* O metodo `set()` serve para setamos uma informação da requisição
+- O metodo `set()` serve para setamos uma informação da requisição
 
-* O ideal para testes, seria rodar os testes com o banco de dados totalmente zerados, uma solução para isso seria o codigo :
+- O ideal para testes, seria rodar os testes com o banco de dados totalmente zerados, uma solução para isso seria o codigo :
 
-`
-beforeEach(() => {
+`beforeEach(() => {
     execSync('npm run knex migrate:rollback --all')
     execSync('npm run knex migrate:latest')
-  })
-`
+  })`
 
 a cada teste apagamos o banco e criamos novamente
 
